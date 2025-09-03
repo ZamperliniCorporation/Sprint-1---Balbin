@@ -1,0 +1,1605 @@
+/* Reset e fontes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: visible !important;
+}
+/* 1) Esconde o botão no desktop */
+.menu-toggle {
+  display: none;
+}
+
+
+/* 2) Só mostra no mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: #fff;
+    cursor: pointer;
+    margin-left: auto; /* empurra pro canto direito */
+  }
+  
+  /* E faz o menu desaparecer até clicar */
+  .menu {
+    display: none !important;
+  }
+  .menu.open {
+    display: flex !important;
+    flex-direction: column;
+  }
+}
+
+/* Topo fixo */
+.topo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: #d4af37;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.2);
+  color: #b9972f;
+}
+
+/* Menu */
+.topo .menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topo .menu a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.topo .menu a:hover {
+  transform: scale(1.2);
+  color: #d4af37;
+}
+
+/* WhatsApp no topo */
+.topo .menu a.whatsapp {
+  font-size: 1.75rem;
+  color: #25D366;
+  padding: 0.25rem;
+}
+.topo .menu a.whatsapp:hover {
+  background: #128C7E;
+  color: #fff;
+  border-radius: 50%;
+}
+
+/* Botão flutuante WhatsApp dourado */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #25D366;
+  color: #000;
+  padding: 0.75rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 10000;
+}
+.whatsapp-float i {
+  font-size: 1.25rem;
+}
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #000, #1c1c1c, #d4af37, #1c1c1c, #000);
+  background-size: 400% 400%;
+  animation: movimento-fundo 40s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 100px;
+  transition: background 1.5s ease;
+}
+
+.hero-content {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+/* Seleciona especificamente o título do hero e aumenta a duração */
+.hero-content h1.fade-in {
+  animation-duration: 6s;      /* Ex.: 4 segundos em vez de 2s */
+}
+
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #d4af37;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #b9972f;
+}
+
+/* Seção Sobre */
+.sobre {
+  padding: 6rem 2rem;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.sobre-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.sobre-texto {
+  flex: 1 1 60%;
+  text-align: left;
+}
+
+.sobre h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 2rem;
+}
+
+.sobre p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+/* Estilos mais fortes para os <strong> na seção Sobre */
+.sobre-texto p strong {
+  font-weight: 900;            /* peso máximo, se sua fonte suportar */
+  color: #ffffff;              /* dourado bem vivo */
+}
+
+
+.sobre-foto {
+  flex: 1 1 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glow e floating */
+.foto-brilho {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
+  animation: float 4s ease-in-out infinite;
+}
+
+.foto-brilho img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Recria a animação de flutuar para .foto-brilho */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ======= Seção “Como funciona” ======= */
+.como-funciona {
+  background: #0a0a0a;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.como-funciona-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.como-funciona h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+}
+
+.funcao-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.funcao-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  text-align: justify;
+}
+
+/* Reaproveita o Scroll Reveal */
+.como-funciona.reveal,
+.como-funciona .funcao-item.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.como-funciona.reveal.visible,
+.como-funciona .funcao-item.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ======= Seção “Como funciona” em 3 colunas ======= */
+.como-funciona {
+  background: #0a0a0a;    /* mantém seu fundo escuro */
+  padding: 4rem 2rem;
+}
+.como-funciona-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.como-funciona h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  color: #d4af37;         /* mantém seu dourado */
+  margin-bottom: 2rem;
+}
+.funcao-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.funcao-item {
+  flex: 1 1 calc(33.333% - 2rem);
+  max-width: calc(33.333% - 2rem);
+  text-align: center;
+}
+.funcao-item i {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+.funcao-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+.funcao-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  text-align: center;
+}
+
+
+/* Scroll Reveal para “Como funciona” */
+.como-funciona.reveal,
+.como-funciona .funcao-item.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.como-funciona.reveal.visible,
+.como-funciona .funcao-item.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsivo: empilha em colunas no mobile */
+@media (max-width: 768px) {
+  .funcao-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+/* ====================================================== */
+/* =========== ESTILOS SERVIÇOS - VERSÃO ABAS =========== */
+/* ====================================================== */
+
+.servicos-tabs {
+  padding: 8rem 2rem;
+  background-color: #111111;
+  color: #f5f5f5;
+  font-family: 'Inter', sans-serif;
+}
+
+.servicos-tabs .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.servicos-titulo-wrapper {
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.servicos-titulo-wrapper h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.servicos-titulo-wrapper p {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* Menu de Abas */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.tab-btn {
+  all: unset;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #a0a0a0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: #fff;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Alinha com a borda do container */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #d4af37;
+  transition: width 0.3s ease-in-out;
+}
+
+.tab-btn.ativo {
+  color: #fff;
+}
+
+.tab-btn.ativo::after {
+  width: 100%;
+}
+
+/* Conteúdo das Abas */
+.tabs-content-wrapper {
+  position: relative;
+  transition: height 0.35s ease-in-out;
+}
+
+.tab-pane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease-in-out;
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+
+.tab-pane.ativo {
+  opacity: 1;
+  pointer-events: all;
+  position: static; /* Chave para o cálculo da altura */
+}
+
+.servico-item {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+}
+
+.servico-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #d4af37;
+  margin-bottom: 0.8rem;
+}
+
+.servico-item p {
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* NOVO: Estilo para o contêiner do ícone */
+.servico-icone {
+  font-size: 1.5rem;
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+  width: 60px;
+  height: 60px;
+  background-color: #2a2a2a;
+  border-radius: 50%;
+  display: grid;
+  place-items: center; /* Centraliza o ícone perfeitamente */
+  transition: transform 0.3s ease;
+}
+
+/* MODIFICADO: Ajustado para alinhar o conteúdo e adicionar efeito de hover */
+.servico-item {
+  background-color: #1a1a1a;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.servico-item:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+}
+
+.servico-item:hover .servico-icone {
+  transform: scale(1.1);
+}
+
+
+.servico-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  margin-bottom: 0.8rem;
+}
+
+.servico-item p {
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+/* ====================================================== */
+/* ========= ESTILOS DOS PLANOS - VERSÃO FINAL ========= */
+/* ====================================================== */
+
+.planos-modernos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8rem 2rem;
+  background: #0d0d0d;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+.planos-wrapper {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.planos-menu {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.menu-btn {
+  all: unset;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1.2rem 1.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  background-color: transparent;
+  color: #aaa;
+  border-left: 4px solid transparent;
+  text-align: left;
+}
+
+.menu-btn:hover {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.menu-btn.ativo {
+  color: #fff;
+  background: linear-gradient(to right, #1a1a1a, #1a1a1a);
+  border-left: 4px solid #d4af37;
+  font-weight: 600;
+}
+
+.planos-conteudo {
+  flex: 1;
+  max-width: 700px;
+}
+
+.planos-conteudo h2 {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  line-height: 1.3;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ====================================================== */
+/* ======== CSS PARA ANIMAÇÃO CROSS-FADE (NOVO) ======== */
+/* ====================================================== */
+
+.card-wrapper {
+  position: relative; /* Essencial para o posicionamento dos filhos */
+  transition: height 0.35s ease-in-out; /* Anima a altura suavemente */
+}
+
+/* [REFATORADO] Estilos do card agora aplicados a esta classe */
+.plano-card-instance {
+  background: #111;
+  padding: 3rem 3rem 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #1f1f1f;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.08);
+
+  /* Lógica de posicionamento e transição */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box; /* Garante que o padding não afete a largura */
+  transition: opacity 0.35s ease-in-out;
+}
+
+.plano-card-instance.oculto {
+  opacity: 0;
+  pointer-events: none; /* Impede interação com o card oculto */
+}
+
+.plano-card-instance.destaque {
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.plano-card-instance h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+  color: #d4af37;
+  position: relative;
+}
+
+.plano-card-instance.destaque h3::after {
+  content: "Sob-Demanda";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #d4af37;
+  color: #0d0d0d;
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.plano-card-instance ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.plano-card-instance ul li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.plano-card-instance ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #d4af37;
+}
+
+.plano-inclusao {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #2a2a2a;
+  text-align: left;
+}
+
+.btn-contratar {
+  display: inline-block;
+  background-color: #d4af37;
+  color: #0d0d0d;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-contratar:hover {
+  background-color: #b8972e;
+}
+
+/* Animações de Fade (Scroll Reveal) */
+.fade-up, .fade-left, .fade-right {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-up { transform: translateY(40px); }
+.fade-left { transform: translateX(-50px); }
+.fade-right { transform: translateX(50px); }
+.fade-up.show, .fade-left.show, .fade-right.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.delay-1s {
+  transition-delay: 0.4s;
+}
+
+/* Responsivo */
+@media (max-width: 980px) {
+  .planos-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+  .planos-menu {
+    flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    padding-bottom: 10px;
+  }
+  .menu-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+  .menu-btn.ativo {
+    border-left: none;
+    border-bottom: 3px solid #d4af37;
+  }
+  .planos-conteudo {
+    max-width: 100%;
+  }
+  .planos-conteudo h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  /* [REFATORADO] Estilos responsivos agora se aplicam a .plano-card-instance */
+  .plano-card-instance {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+  .btn-contratar {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .planos-modernos {
+    padding: 5rem 1rem;
+  }
+  .planos-wrapper {
+    padding: 0;
+  }
+  /* [REFATORADO] Estilos responsivos agora se aplicam a .plano-card-instance */
+  .plano-card-instance h3 {
+    font-size: 1.4rem;
+  }
+  .plano-card-instance ul li {
+    font-size: 0.95rem;
+  }
+}
+
+/* ====================================================== */
+/* ============ ESTILOS DEPOIMENTOS - FINAL ============ */
+/* ====================================================== */
+
+.depoimentos {
+  padding: 8rem 2rem;
+  background-color: #0d0d0d;
+  font-family: 'Inter', sans-serif;
+}
+
+.depoimentos .container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.depoimentos-titulo-wrapper {
+  margin-bottom: 4rem;
+}
+
+.depoimentos-titulo-wrapper h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.depoimentos-titulo-wrapper p {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+.depoimentos-wrapper {
+  background-color: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 4rem 3rem 3rem;
+}
+
+/* O espaçamento agora é em cima, não embaixo */
+.depoimento-display {
+  position: relative;
+  min-height: 220px;
+  margin-top: 3rem; /* ANTES: margin-bottom */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.depoimento-display::before {
+  content: '“';
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  color: #2a2a2a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.depoimento-texto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.depoimento-texto.ativo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.depoimento-texto blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+  max-width: 700px;
+  margin: 0;
+  font-style: italic;
+}
+
+/* A borda e o espaçamento agora são embaixo */
+.depoimento-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  border-bottom: 1px solid #2a2a2a; /* ANTES: border-top */
+  padding-bottom: 2rem; /* ANTES: padding-top */
+}
+
+.depoimento-autor-btn {
+  all: unset;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  position: relative;
+  padding-left: 20px;
+}
+
+.depoimento-autor-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #d4af37;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.depoimento-autor-btn:hover {
+  opacity: 1;
+}
+
+.depoimento-autor-btn.ativo {
+  opacity: 1;
+}
+
+.depoimento-autor-btn.ativo::before {
+  opacity: 1;
+}
+
+.autor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.autor-nome {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.autor-cargo {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+/* NOVO: Estilo para o ícone do rodapé */
+.depoimento-rodape-icone {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  color: #d4af37; /* Cor de destaque do projeto */
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .depoimento-texto blockquote {
+      font-size: 1.2rem;
+  }
+  .depoimento-nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+  }
+  .depoimento-autor-btn {
+      text-align: center;
+      padding-left: 0;
+  }
+  .depoimento-autor-btn::before {
+      display: none; /* Simplifica para mobile */
+  }
+}
+
+/* Seção Contato - Minimalista e sofisticado */
+.contato {
+  background-color: #0a0a0a;
+  padding: 6rem 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.contato h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+
+.contato p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.contato-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contato form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contato input,
+.contato textarea {
+  background: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.contato input::placeholder,
+.contato textarea::placeholder {
+  color: #888;
+}
+
+.contato input:focus,
+.contato textarea:focus {
+  outline: none;
+  border-color: #ffd700;
+}
+
+.contato textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.contato button {
+  background: none;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  font-weight: 600;
+  padding: 0.9rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contato button:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+/* estilo geral para select no form de contato */
+.contato select {
+  background: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.3s ease;
+  width: 100%; /* ocupa toda largura como os inputs */
+  margin-bottom: 1rem;
+  appearance: none;        /* remove seta nativa */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23fff' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 10px 6px;
+}
+
+.contato select:focus {
+  outline: none;
+  border-color: #ffd700;
+}
+
+/* ====== Estilo das opções do select ====== */
+.contato select option {
+  background-color: #111;    /* mesmo fundo dos cards */
+  color: #fff;               /* texto branco */
+}
+
+/* Quando a opção estiver selecionada no dropdown */
+.contato select option:checked {
+  background-color: #d4af37; /* dourado para destacar a opção ativa */
+  color: #111;               /* texto escuro */
+}
+
+/* Estilo padrão para campos do formulário */
+form input,
+form select,
+form textarea {
+  background-color: #111;
+  color: #f5d76e;
+  border: 1px solid #f5d76e;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Campo de telefone com plugin */
+.iti input {
+  background-color: #111 !important;
+  color: #fff !important;
+  border: 1px solid #f5d76e !important;
+  border-radius: 6px !important;
+  padding: 10px 10px 10px 50px !important; /* espaço para a bandeira */
+  font-size: 16px !important;
+  font-family: inherit !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Dropdown do plugin de telefone */
+.iti__country-list {
+  background-color: #111 !important;
+  color: #f5d76e !important;
+  border: 1px solid #f5d76e !important;
+  scrollbar-color: #f5d76e #111 !important;
+}
+
+.iti__country {
+  color: #f5d76e !important;
+}
+
+.iti__country:hover,
+.iti__country--highlight {
+  background-color: #222 !important;
+  color: #fff !important;
+}
+
+.iti__flag-container {
+  border-right: 1px solid #f5d76e !important;
+}
+
+.iti__divider {
+  border-top: 1px solid #333 !important;
+}
+
+.erro-vibrar {
+  animation: vibrar 0.3s linear 2;
+}
+
+@keyframes vibrar {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-4px); }
+  50%  { transform: translateX(4px); }
+  75%  { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+/* Campos com erro (com base na classe erro-vibrar já existente) */
+form input.erro-vibrar,
+form select.erro-vibrar,
+form textarea.erro-vibrar,
+.iti input.erro-vibrar {
+  border-color: red !important;
+  color: #fff !important;
+}
+
+/* Placeholder em vermelho quando campo está com erro */
+form input.erro-vibrar::placeholder,
+form textarea.erro-vibrar::placeholder,
+.iti input.erro-vibrar::placeholder {
+  color: #ffaaaa !important;
+}
+
+/* Também adiciona um leve brilho visual para destacar */
+form input.erro-vibrar,
+form select.erro-vibrar,
+form textarea.erro-vibrar,
+.iti input.erro-vibrar {
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.3);
+}
+
+
+
+
+/* ===== FAQ ===== */
+.faq {
+  padding: 4rem 2rem;
+  background: #0a0a0a;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #d4af37;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.faq-item {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.faq-item:first-of-type {
+  border-top: none;
+}
+.faq-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* empurra tudo para a esquerda */
+  cursor: pointer;
+  position: relative;
+  gap: 7rem;  /* espaçamento entre ícone e texto */
+}
+.faq-icon {
+  font-size: 1.5rem;
+  color: #d4af37;
+  transition: transform 0.3s ease;
+}
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0;
+}
+.faq-content p {
+  margin: 0.5rem 0 1.5rem;
+  line-height: 1.6;
+  color: #ddd;
+  text-align: justify;
+}
+/* Quando aberto... */
+.faq-toggle[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-toggle[aria-expanded="true"] + .faq-content {
+  max-height: 500px; /* ajuste se precisar de mais espaço */
+  padding: 0.5rem 0 1.5rem;
+}
+
+/* Responsivo: garante 100% em mobile */
+@media(max-width: 768px) {
+  .faq { padding: 2rem 1rem; }
+  .faq h2 { font-size: 2rem; }
+  .faq-toggle {
+    font-size: 0.95rem;
+    gap: 0.5rem; /* <-- Adicionado aqui para aproximar o texto do "+" */
+  }
+  .faq-icon { font-size: 1.25rem; }
+}
+
+
+
+/* Reveal ao scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.copy {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.divisor {
+  border: none;
+  height: 0.5px;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  margin: 0.5rem auto;
+  width: 60%;
+}
+
+.topo .menu {
+  display: flex;
+  align-items: center;
+}
+
+/* empurra o WhatsApp para a extrema direita */
+.topo .menu a.whatsapp {
+  margin-left: auto;
+  font-size: 1.75rem;
+  color: #25D366;
+  padding: 0.25rem;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.topo .menu a.whatsapp:hover {
+  background: #128C7E;
+  color: #fff;
+  border-radius: 50%;
+  transform: scale(1.2);
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .carousel {
+    --carousel-item-width: 220px;
+    --carousel-item-height: 350px;
+    --carousel-item-gap: 1rem;
+    --carousel-duration: 50s;
+  }
+  .servicos h2 {
+    font-size: 2rem;
+  }
+}
+
+
+/* responsivo */
+@media (max-width: 768px) {
+  .carousel {
+    --carousel-item-width: 220px;
+    --carousel-item-height: 350px;
+    --carousel-item-gap: 1rem;
+    --carousel-duration: 50s;
+  }
+  .servicos-marquee h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .card { flex: 0 0 250px; }
+  .card img { height: 150px; }
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .carousel3d {
+    width: 300px; height: 225px;
+    animation-duration: 25s;
+  }
+  .carousel3d .panel {
+    width: 220px; height: 150px;
+  }
+  .servicos3d::before {
+    width: 600px; height: 600px;
+  }
+}
+
+
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay adicional para elemento */
+.delay-200 {
+  transition-delay: 0.2s;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu a {
+    margin: 0.5rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sobre-texto,
+  .sobre-foto {
+    flex: 1 1 100%;
+  }
+
+  .foto-brilho {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Animação de fundo */
+@keyframes movimento-fundo {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hero fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 2s ease-out forwards;
+}
+
+.fade-in.delay {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+h1 {
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+h1:hover {
+  transform: scale(1.1);
+  color: #f5d76e;
+}
+h2 {
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+h2:hover {
+  transform: scale(1.1);
+  color: #f5d76e;
+}
+
+@media (max-width: 768px) {
+  /* Carrossel vira fila rolável */
+  .servicos .carousel {
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    mask: none !important;
+    -webkit-mask: none !important;
+    height: auto !important;
+    width: 100% !important;       /* ocupa toda a largura disponível */
+    padding: 1rem 0;               /* deixa um espacinho em cima e embaixo */
+    gap: var(--carousel-item-gap); /* mantém o espaçamento entre cards */
+  }
+
+  .servicos .carousel > article {
+    position: relative !important;
+    flex: 0 0 80% !important;     /* cada card ocupa 80% da tela */
+    min-width: 280px !important;   /* ou o valor de --carousel-item-width */
+    height: auto !important;
+    scroll-snap-align: center !important;
+    animation: none !important;    /* para não haver jogo de marquee */
+    margin: 0 !important;
+  }
+}
+/* ====== RODAPÉ ====== */
+.rodape {
+  background: #212121;
+  color: #ccc;
+  padding: 3rem 2rem 1.5rem;
+}
+.rodape-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.rodape-col {
+  flex: 1;
+  min-width: 200px;
+}
+.rodape-logo {
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.rodape-col h4 {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+.rodape-col p,
+.rodape-col li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.rodape-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rodape-col ul li {
+  margin-bottom: 0.5rem;
+}
+.rodape-col a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.rodape-col a:hover {
+  color: #d4af37;
+}
+.rodape-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+  color: #ccc;
+  transition: color 0.3s;
+}
+.rodape-socials a:hover {
+  color: #d4af37;
+}
+.rodape-copy {
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 1.5rem;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+  .rodape-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .rodape-col {
+    min-width: auto;
+  }
+  .rodape-col ul li {
+    margin-bottom: 0.75rem;
+  }
+  .rodape-socials a {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+}
+
+
+
+
+
+
