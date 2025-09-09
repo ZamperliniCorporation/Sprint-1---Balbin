@@ -10,13 +10,13 @@
   <meta name="description" content="Balbin é liderada por um assessor executivo de padrão internacional, com 15+ anos de experiência em suporte a CEOs e líderes estratégicos.">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico?v=4">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico?v=5">
 
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=6" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -41,9 +41,21 @@
   <meta name="twitter:title" content="Balbin – Concierge Executivo" />
   <meta name="twitter:description" content="Balbin é liderada por um assessor executivo de padrão internacional, com 15+ anos de experiência em suporte a CEOs e líderes estratégicos." />
   <meta name="twitter:image" content="https://rogerioconcierge.com/assets/images/logo.png" />
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MT3MSHV5');</script>
+
+
 </head>
 
 <body>
+
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MT3MSHV5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
   <header class="topo">
     <div class="logo">Balbin</div>
     <button class="menu-toggle" aria-label="Abrir menu">
@@ -60,11 +72,21 @@
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero" id="home">
-      <div class="hero-content">
-        <h1 class="fade-in">Concierge as a Service</h1>
-        <p class="fade-in delay">Soluções sob medida para executivos que exigem excelência.</p>
+      <div class="hero-container">
+        <div class="hero-texto">
+          <div class="hero-texto-content">
+            <h1 class="fade-in">Assessor Executivo</h1>
+            <p class="fade-in delay">
+              Soluções estratégicas no suporte à alta gestão. Atuação personalizada para líderes que exigem performance e sofisticação.
+            </p>
+            <a href="#contato" class="btn fade-in delay-2s">Fale Conosco</a>
+          </div>
+        </div>
+    
+        <div class="hero-foto">
+          <img src="./assets/images/balbin-hero.png" alt="Rogério Balbin, Assessor Executivo" class="fade-in delay-1s" />
+        </div>
       </div>
     </section>
 
@@ -238,19 +260,26 @@ Para aqueles momentos em que a presença faz a diferença, oferecemos a opção 
           </div>
         </div>
   
-      </div>
-    </div>
+      </div> <!-- Fim de .tabs-content-wrapper -->
+    </div> <!-- Fim de .container -->
   </section>
     
    <hr class="divisor">
    
-   <section id="planos" class="planos-modernos">
+   <section id="planos" class="planos-modernos" style="scroll-margin-top: 100px;">
     <div class="planos-wrapper">
       <aside class="planos-menu fade-left">
-        <button class="menu-btn" data-plano="essencial">Essencial</button>
-        <button class="menu-btn" data-plano="executivo">Executivo</button>
-        <button class="menu-btn" data-plano="premium">Premium</button>
-        <button class="menu-btn ativo" data-plano="sob-demanda">Sob-Demanda</button>
+  
+        <div class="planos-menu-standard">
+          <button class="menu-btn" data-plano="essencial">Essencial</button>
+          <button class="menu-btn" data-plano="executivo">Executivo</button>
+          <button class="menu-btn" data-plano="premium">Premium</button>
+        </div>
+        
+        <div class="planos-menu-destaque">
+          <button class="menu-btn ativo" data-plano="sob-demanda">Sob-Demanda</button>
+        </div>
+      
       </aside>
   
       <div class="planos-conteudo">
@@ -273,11 +302,10 @@ Para aqueles momentos em que a presença faz a diferença, oferecemos a opção 
             <a href="#contato" class="btn-contratar"> Contratar </a>
           </div>
       
-          <div id="plano-card-b" class="plano-card-instance oculto">
-            </div>
+          <div id="plano-card-b" class="plano-card-instance oculto"></div>
       
         </div>
-        </div>
+      </div>
     </div>
   </section>
 
@@ -469,42 +497,44 @@ Para aqueles momentos em que a presença faz a diferença, oferecemos a opção 
   <!-- Serviços interativos -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Lógica para a seção de serviços em abas
+    // ======================================================
+    // === LÓGICA PARA A SEÇÃO DE SERVIÇOS EM ABAS (FINAL) ===
+    // ======================================================
     const tabsBtns = document.querySelectorAll(".tab-btn");
-    const tabsContentWrapper = document.querySelector(".tabs-content-wrapper");
     const tabsPanes = document.querySelectorAll(".tab-pane");
 
-    // Define a altura inicial
-    const activePane = document.querySelector(".tab-pane.ativo");
-    if (activePane) {
-        tabsContentWrapper.style.height = `${activePane.scrollHeight}px`;
+    // [SIMPLIFICADO] A lógica de altura foi removida.
+    // O CSS com `display: none` / `display: grid` agora controla o layout.
+    if (tabsBtns.length > 0 && tabsPanes.length > 0) {
+        
+        // Garante que a página carregue com a altura correta do painel ativo
+        const activePane = document.querySelector(".tab-pane.ativo");
+        if (activePane) {
+            // Não precisamos mais setar a altura, mas garantimos que está visível
+            activePane.classList.add('ativo');
+        }
+
+        tabsBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                if (btn.classList.contains("ativo")) return;
+
+                // Remove 'ativo' de todos os botões e painéis
+                tabsBtns.forEach(b => b.classList.remove("ativo"));
+                tabsPanes.forEach(p => p.classList.remove("ativo"));
+                
+                // Adiciona 'ativo' ao botão clicado
+                btn.classList.add("ativo");
+
+                // Encontra e ativa o painel de conteúdo correspondente
+                const targetId = btn.dataset.target;
+                const targetPane = document.getElementById(targetId);
+                if (targetPane) {
+                    targetPane.classList.add("ativo");
+                }
+            });
+        });
     }
 
-    tabsBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            if (btn.classList.contains("ativo")) return;
-
-            // Remove 'ativo' de todos
-            tabsBtns.forEach(b => b.classList.remove("ativo"));
-            tabsPanes.forEach(p => p.classList.remove("ativo"));
-            
-            // Adiciona 'ativo' ao botão clicado
-            btn.classList.add("ativo");
-
-            // Encontra e ativa o painel de conteúdo correspondente
-            const targetId = btn.dataset.target;
-            const targetPane = document.getElementById(targetId);
-
-            if (targetPane) {
-                // Calcula a altura do novo painel
-                const novaAltura = targetPane.scrollHeight;
-                tabsContentWrapper.style.height = `${novaAltura}px`;
-
-                // Ativa o novo painel
-                targetPane.classList.add("ativo");
-            }
-        });
-    });
 });
 </script>
 
